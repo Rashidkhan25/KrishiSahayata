@@ -1,0 +1,165 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+.header {
+    background: linear-gradient(135deg, #2d7d46, #4caf50);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.site-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.krishi {
+    color: white;
+}
+
+.sahayata {
+    color: yellow;
+}
+
+.header h2 {
+    margin-top: 80px; /* Adjust margin to avoid overlap with title */
+}
+
+.header p {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.content {
+    padding: 40px 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: rgb(47, 171, 82);
+}
+
+/* Cards Section */
+.soil-cards, .water-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 calc(33.333% - 40px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #2d7d46;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.view-details {
+    background-color: #2d7d46;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-details:hover {
+    background-color: #1e5a30;
+}
+
+.details {
+    display: none;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    color: #555;
+}
+
+.card.active .details {
+    display: block;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Recommendations */
+.recommendations ul {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.recommendations li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2d7d46;
+    color: white;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .soil-cards, .water-cards {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+}

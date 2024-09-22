@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="login.css" />
+    <title>KrishiSahayata | Login</title>
+    <style>
+        body.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body {
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body class="main">
+    <div class="nav">
+        <h1 id="web">Krishi<span id="col">Sahayata</span></h1>
+        <select id="languageSwitcher">
+            <option value="en">English</option>
+            <option value="hi">हिंदी (Hindi)</option>
+            <option value="mr">मराठी (Marathi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="gu">ગુજરાતી (Gujarati)</option>
+            <option value="bn">বাংলা (Bengali)</option>
+            <option value="or">ଓଡ଼ିଆ (Odia)</option>
+            <option value="ur">اردو (Urdu)</option>
+            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+            <option value="bho">भोजपुरी (Bhojpuri)</option>
+        </select>
+    </div>
+    <div class="container">
+        <div class="login__container">
+            <div class="top__content">
+                <p data-translate="true" data-key="noAccount" id="acc">Don't you have an account?</p>
+                <button data-translate="true" data-key="signup">Sign Up</button>
+                <h1 data-translate="true" data-key="welcome">WELCOME</h1>
+            </div>
+            <div class="bottom__content">
+                <form id="loginForm">
+                    <div class="form__group">
+                        <span><i class="ri-user-line"></i></span>
+                        <input type="text" placeholder="Username" data-translate="true" data-key="username" required />
+                    </div>
+                    <div class="form__group">
+                        <span><i class="ri-lock-line"></i></span>
+                        <input type="password" placeholder="Password" data-translate="true" data-key="password" required />
+                    </div>
+                    <button type="submit" data-translate="true" data-key="login" id="Login">LOGIN</button>
+                    <p><a href="#" data-translate="true" data-key="forgotPassword">Forgot your password?</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="location.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        // Handle form submission and transition to home.html inside the 'home_page' subfolder
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission
+    
+            // Add fade-out effect
+            document.body.classList.add('fade-out');
+    
+            // Wait for the transition to complete, then redirect
+            setTimeout(function () {
+                window.location.href = 'home_page/home.html'; // Updated path without spaces
+            }, 500); // Match the transition duration
+        });
+    
+        // Remove fade-out class when the page loads to allow the fade-in effect
+        window.onload = function () {
+            document.body.classList.remove('fade-out');
+        };
+    </script>
+    
+    
+</body>
+</html>

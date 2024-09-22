@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="basicrent.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <title>Web Design Mastery | RENTAL</title>
+  
+  </head>
+  <body>
+    <header>
+      <div class="contact-info">
+        <h1>Krishi<span>Sahayata</span></h1>
+      </div>
+      <div class="user-actions">
+          <div class="language-select">
+              <select id="languageSelect">
+                  <option value="en">English</option>
+                  <option value="hi">Hindi</option>
+                  <option value="mar">Marathi</option>
+                  <option value="gu">Gujrati</option>
+              </select>
+          </div>
+          <div class="cart" id="cart">
+              <i class="fas fa-shopping-cart"></i> Cart(0)
+          </div>
+          <div class="track-order" id="trackOrder">
+              <i class="fas fa-paper-plane"></i> Track Order
+          </div>
+      </div>
+  </header>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <section class="home_top"  id="home_top">
+      <nav>
+        <div class="nav__header">
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="../home_page/home.html">Home</a></li>
+          <li><a href="#rent">Buy/Rent</a></li>
+          <li><a href="post.html">Post Product</a></li>
+          <li><a href="#review">Review</a></li>
+          <li><a href="#contact">Contact</a></li>
+          
+        </ul>
+        
+      </nav>
+
+      
+
+      <!--home-->
+      <div class="header__container" id="home">
+        <h1>Equipment Rental</h1>
+        <form action="/">
+          <div class="input__group">
+            <label for="location">Pick up & Return location</label>
+            <input
+              type="text"
+              name="location"
+              id="location"
+              placeholder="Vasai, Mumbai"
+            />
+          </div>
+          <div class="input__group">
+            <label for="start">Pick-up date</label>
+            <input
+              type="text"
+              name="start"
+              id="start"
+              placeholder="Sep 20, 10:00 AM"
+            />
+          </div>
+          <div class="input__group">
+            <label for="stop">Return Data</label>
+            <input
+              type="text"
+              name="stop"
+              id="stop"
+              placeholder="Sep 20, 10:00 PM"
+            />
+          </div>
+          <button class="btn">
+            <i class="ri-search-line"></i>
+          </button>
+        </form>
+        <img src="https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="header" />
+      </div>
+      <a href="#about" class="scroll__down">
+        <i class="ri-arrow-down-line"></i>
+      </a>
+    </header>
+    
+    <!--how it works-->
+    <section class="section__container location__container" id="rent">
+     
+      <div class="location__content">
+        <h3 class="section__header">RENT WITH 3 EASY STEPS</h3>
+        <p>
+            "Farmers can quickly locate nearby equipment for rent or sale using location-based tools, connecting with local providers to save time and reduce costs."
+        </p>
+        <section class="working">
+          <div id="location">
+            <img src="location_1.jpg" alt="Location Image" class="location-image">
+            <h4>Choose a location</h4>
+            <p>Select the area where <br> you need the equipment to be available.</p>
+          </div>
+          
+        <div id="date">
+          <img src="date.jpg" alt="date image" class="date">
+            <h4>Pick a date</h4>
+            <p>Set the  date <br> for your equipment rental.</p>
+        </div>
+        <div id="book">
+          
+          <img src="equipment.png" alt="equipment image" class="equipment">
+            <h4>Book your equipment</h4>
+            <p>Book the Equipment: <br> Confirm and finalize your rental.</p>
+        </div>
+        </section>
+       
+      </div>
+    </section>
+
+  
+  <!--end-->
+
+  <!-- Location input for buyers -->
+  <div class="location-check">
+    <input type="text" id="buyerLocation" placeholder="Enter Product required">
+    <button onclick="checkNearby()">Check Nearby Equipment</button>
+</div>
+
+<!-- Location Map Section -->
+<section class="map-section" >
+  <h2 id="nearBy">Nearby Locations</h2>
+  <div id="map" style="height: 350px; width: 400px"></div>
+</section>
+
+    <!--buy or rent-->
+  
+<div class="equipment-section">
+  <h1>Rent & Buy Farming Equipment</h1>
+
+  <!-- Row of equipment -->
+  <div class="equipment-row">
+    <div class="equipment-card">
+      <img src="https://images.pexels.com/photos/11272353/pexels-photo-11272353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tractor">
+      <div class="equipment-info">
+        <h3>12 HP Diesel Power Tiller</h3>
+        <p><span>Price:</span> ₹65,000 or Rent: ₹200/day</p>
+        <p><span>Free Delivery</span></p>
+      </div>
+      <!-- Rent and Buy buttons -->
+      <div class="button-container">
+        <button class="buy-button">Buy</button>
+        <button class="rent-button">Rent</button>
+      </div>
+    </div>
+
+    <div class="equipment-card">
+      <img src="https://images.pexels.com/photos/14663401/pexels-photo-14663401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Plough">
+      <div class="equipment-info">
+        <h3>Power Tiller for Agriculture</h3>
+        <p><span>Price:</span> ₹80,000 or Rent: ₹300/day</p>
+        <p><span>Free Delivery</span></p>
+      </div>
+      <div class="button-container">
+        <button class="buy-button">Buy</button>
+        <button class="rent-button">Rent</button>
+      </div>
+    </div>
+
+    <div class="equipment-card">
+      <img src="https://images.pexels.com/photos/2253412/pexels-photo-2253412.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soil Cultivator">
+      <div class="equipment-info">
+        <h3>7hp Power Tiller</h3>
+        <p><span>Price:</span> ₹5,000 or Rent: ₹100/day</p>
+        <p><span>Free Delivery</span></p>
+      </div>
+      <div class="button-container">
+        <button class="buy-button">Buy</button>
+        <button class="rent-button">Rent</button>
+      </div>
+    </div>
+
+    <div class="equipment-card">
+      <img src="https://images.pexels.com/photos/11272353/pexels-photo-11272353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tractor">
+      <div class="equipment-info">
+        <h3>7.5 HP Petrol Power Weeder</h3>
+        <p><span>Price:</span> ₹29,800 or Rent: ₹400/day</p>
+        <p><span>Free Delivery</span></p>
+      </div>
+      <div class="button-container">
+        <button class="buy-button">Buy</button>
+        <button class="rent-button">Rent</button>
+      </div>
+    </div>
+
+   
+    <div class="equipment-row">
+      <div class="equipment-card">
+        <img src="https://images.pexels.com/photos/11272353/pexels-photo-11272353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tractor">
+        <div class="equipment-info">
+          <h3>12 HP Diesel Power Tiller</h3>
+          <p><span>Price:</span> ₹65,000 or Rent: ₹200/day</p>
+          <p><span>Free Delivery</span></p>
+        </div>
+        <!-- Rent and Buy buttons -->
+        <div class="button-container">
+          <button class="buy-button">Buy</button>
+          <button class="rent-button">Rent</button>
+        </div>
+      </div>
+      
+        <div class="equipment-card">
+          <img src="https://images.pexels.com/photos/9686981/pexels-photo-9686981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tiller">
+          <div class="equipment-info">
+            <h3>12 HP Diesel Power Tiller</h3>
+            <p><span>Price:</span> ₹65,000 or Rent: ₹200/day</p>
+            <p><span>Free Delivery</span></p>
+          </div>
+          <!-- Rent and Buy buttons -->
+          <div class="button-container">
+            <button class="buy-button">Buy</button>
+            <button class="rent-button">Rent</button>
+          </div>
+        </div>
+
+        <div class="equipment-card">
+          <img src="https://images.pexels.com/photos/11272353/pexels-photo-11272353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tractor">
+          <div class="equipment-info">
+            <h3>12 HP Diesel Power Tiller</h3>
+            <p><span>Price:</span> ₹65,000 or Rent: ₹200/day</p>
+            <p><span>Free Delivery</span></p>
+          </div>
+          <!-- Rent and Buy buttons -->
+          <div class="button-container">
+            <button class="buy-button">Buy</button>
+            <button class="rent-button">Rent</button>
+          </div>
+        </div>
+
+        <div class="equipment-card">
+          <img src="https://images.pexels.com/photos/11272353/pexels-photo-11272353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tractor">
+          <div class="equipment-info">
+            <h3>12 HP Diesel Power Tiller</h3>
+            <p><span>Price:</span> ₹65,000 or Rent: ₹200/day</p>
+            <p><span>Free Delivery</span></p>
+          </div>
+          <!-- Rent and Buy buttons -->
+          <div class="button-container">
+            <button class="buy-button">Buy</button>
+            <button class="rent-button">Rent</button>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+<!--review section-->
+
+<section class="review-section">
+  <div class="review-container" id="review">
+      <div class="left-box">
+          <h2>Share Your Experience</h2>
+          <p>How was your experience?</p>
+          <!-- Star Rating Section -->
+          <div class="rating-box">
+              <div class="rating">
+                  <input type="radio" id="star5" name="rating" value="5">
+                  <label for="star5" title="5 stars"></label>
+                  <input type="radio" id="star4" name="rating" value="4">
+                  <label for="star4" title="4 stars"></label>
+                  <input type="radio" id="star3" name="rating" value="3">
+                  <label for="star3" title="3 stars"></label>
+                  <input type="radio" id="star2" name="rating" value="2">
+                  <label for="star2" title="2 stars"></label>
+                  <input type="radio" id="star1" name="rating" value="1">
+                  <label for="star1" title="1 star"></label>
+              </div>
+          </div>
+      </div>
+
+      <div class="right-box">
+          <p>Do you have any suggestions or improvements?</p>
+          <!-- Feedback Section -->
+          <textarea id="feedback" name="feedback" rows="5" placeholder="Your feedback..."></textarea>
+          <div class="submit-review">
+              <button type="submit">Submit Review</button>
+          </div>
+      </div>
+  </div>
+</section>
+
+    <section class="download">
+      <div class="section__container download__container">
+       
+          <h2 class="section__header">RENT-TOOL</h2>
+          
+      </div>
+    </section>
+
+    <section class="news" id="contact">
+      <div class="section__container news__container">
+        <h2 class="section__header">Stay up to date on all the latest news.</h2>
+        <form action="/">
+          <input type="text" placeholder="Your email" />
+          <button class="btn">
+            <i class="ri-send-plane-fill"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+          <div class="footer-section">
+              <h3>USEFUL LINKS</h3>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Payment Policy</a></li>
+                  <li><a href="#">Cancellation & Return</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Contact Us</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h3>PRODUCT</h3>
+              <ul>
+                  <li><a href="#">Agriculture Equipment</a></li>
+                  <li><a href="#">DEMO</a></li>
+                  <li><a href="#">Construction Equipment</a></li>
+                  <li><a href="#">Garden Equipment</a></li>
+              </ul>
+          </div>
+
+  
+
+          <div class="footer-section">
+              <h3>ABOUT COMPANY</h3>
+              <p>We at Krishisahayata share our main interest in the sphere of quality products with a commitment to excellence.</p>
+              <div class="social-media">
+                  <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJxZdPSJTxLUUNP8x_oY1eTjvIYTys8iYnyA&s" alt="Facebook"></a>
+                  <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+                  <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR87Sw-NnUs0QS5-RXM7yMvtDFZVFh0HkkBNg&s" alt="YouTube"></a>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>© Krishisahayata 2024. All Rights Reserved.</p>
+         
+      </div>
+  </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="rent.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="location.js"></script>
+  </body>
+</html>

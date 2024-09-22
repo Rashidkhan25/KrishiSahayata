@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Sahayata - Crop Management System</title>
+    <link rel="stylesheet" href="crop.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <h1>Krishi<span>Sahayata</span></h1>
+        </div>
+    </header>
+
+    <section class="crop-filter">
+        <h2>Select Crop to View Details</h2>
+        <select id="cropSelect" class="dropdown">
+            <option value="wheat">Wheat</option>
+            <option value="rice">Rice</option>
+            <option value="millets">Millets</option>
+            <option value="pulses">Pulses</option>
+            <option value="tea">Tea</option>
+            <option value="coffee">Coffee</option>
+            <option value="sugarcane">Sugarcane</option>
+            <option value="oil_seeds">Oil Seeds</option>
+            <option value="cotton">Cotton</option>
+            <option value="jute">Jute</option>
+        </select>
+    </section>
+
+    <section id="cropDetails" class="crop-overview">
+        <div class="crop-image" id="cropImage">
+            <img src="soft-wheat-8158264_1280.jpg" alt="Crop Image" id="cropBackground">
+        </div>
+        <div class="crop-info">
+            <h3 id="cropName">Wheat</h3>
+            <p id="cropDescription">Wheat is a staple crop cultivated in various parts of India, used for flour production, and contributes heavily to the agriculture sector.</p>
+            <ul>
+                <li><strong>Planting Season:</strong> Rabi (October - November)</li>
+                <li><strong>Harvest Time:</strong> March - April</li>
+                <li><strong>Production Area:</strong> 30 million hectares</li>
+                <li><strong>Average Yield:</strong> 3,000 kg/hectare</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="crop-chart">
+        <h2>Crop Production Overview</h2>
+        <div class="chart-container">
+            <canvas id="cropChart"></canvas>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Krishi Sahayata - Empowering Farmers with Technology</p>
+    </footer>
+
+    <script src="crop.js"></script>
+</body>
+</html>

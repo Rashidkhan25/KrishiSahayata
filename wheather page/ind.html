@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sty.css">
+    <title>Krishi Sahayata - Weather and Crop Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header id="nav">
+        <h1 id="web">Krishi<span id="col">Sahayata</span></h1>
+    </header>
+    
+    <section class="content-wrapper">
+        <div class="input-section">
+            <label for="state">Select State:</label>
+            <select id="state"></select>
+
+            <label for="city">Select City:</label>
+            <select id="city"></select>
+
+            <label for="category">Select Category:</label>
+            <select id="category">
+                <option value="kharif">Kharif</option>
+                <option value="rabi">Rabi</option>
+            </select>
+
+            <label for="crop">Select Crop:</label>
+            <select id="crop"></select>
+
+            <button id="enterButton">Get Details</button>
+
+            <p id="descriptionBox"></p>
+        </div>
+
+        <section id="weather_wrapper" class="card">
+            <h2>Weather Information</h2>
+            <p>Details will appear here...</p>
+        </section>
+
+        <section id="graph_wrapper" class="card">
+            <h3>Weather Graph</h3>
+            <canvas id="weatherGraph" width="400" height="200"></canvas>
+        </section>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Krishi Sahayata | Empowering Farmers Across India</p>
+    </footer>
+    <script src="src.js"></script>
+    <script src="tra.js"></script>
+</body>
+</html>
