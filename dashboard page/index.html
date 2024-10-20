@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrishiSahayata Dashboard</title>
+    <link rel="stylesheet" href="basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+</head>
+<body>
+   
+    <header>
+        <div class="header-left">
+        <span class="hamburger" onclick="openMenu()">&#9776;</span>
+           <h2 id="h2"> Krishi<span id="name">Sahayata</span></h2> 
+        </div>
+        <div class="header-center">
+            <input type="text" placeholder="Search..." class="search-bar">
+        </div>
+        <div class="header-right">
+            <button class="notify-btn">🔔</button> 
+            <div class="profile">
+                <img src="Indian Farmer.jpeg" alt="Profile" class="profile-img"> 
+            </div>
+        </div>
+    </header>
+     <!-- Menu Overlay -->
+     <div id="menuOverlay" class="menu-overlay">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <ul>
+            <li><a href="../home_page/home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="../crop%20management/crop.html"><i class="fas fa-seedling"></i> Crop Management</a></li>
+            <li><a href="../soil%20health/soil.html"><i class="fas fa-water"></i> Soil & Water</a></li>
+            <li><a href="../wheather%20page/ind.html"><i class="fas fa-cloud-sun"></i> Weather</a></li>
+            <li><a href="../rent%20equipments/rent.html"><i class="fas fa-tools"></i> Equipment</a></li>
+            <li><a href="#"><i class="fas fa-tasks"></i> Task Management</a></li>
+            <li><a href="#"><i class="fas fa-chart-line"></i> Reports & Analytics</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="#"><i class="fas fa-user"></i> My Account</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+        </ul>
+    </div>
+    <div class="dashboard-container">
+        <!-- Main Content Area -->
+        <main class="main-content">
+           
+                <div class="greeting">
+                    <h1>Welcome!</h1>
+                    <p>Optimize Your Farm Operations with Real-Time Insights</p>
+                </div>
+                
+            </header>
+
+            <!-- Overview Cards -->
+
+            <!--weather overview-->
+            <section class="overview">
+                <div id="weather-container"><h2>Weather info</h2>
+               <input type="text" id="city" placeholder="Enter city">
+               <button onclick="getWeather()">Search</button>
+           
+               <img id="weather-icon" >
+               <div id="temp-div"></div>
+               <div id="weather-info"></div>
+              <p> <div id="hourly-forecast"></div></p>
+               </div>
+         
+              
+                <!--production overview-->
+               
+                <div class="card production-card">
+                    <h3>Production Overview</h3>
+                   
+                        <!-- Insert your chart here -->
+                       
+                    
+                     <div class="programming-stats">
+                       <div class="chart-container">
+                        
+                       </div>
+                       <canvas id="productionChart" ></canvas>
+                       <div class="details">
+                         <ul></ul>
+                       </div>
+                     </div>
+                    
+                     
+                   
+                </div>
+            </section>
+                
+           
+
+            <!-- Yield Analysis & Task Management -->
+            <section class="dashboard-details">
+                
+                <div class="yield-analysis">
+                    <h3>Monthly Yield Analysis</h3>
+                   
+                   
+                    <canvas id="lineChart1"></canvas>
+                   
+                </div>
+               
+            <!-- Current loaction map -->
+             <div class="current-location">
+
+                <h3>Get Your Current Location</h3>
+                <button id="locationButton">Show My Location</button>
+                <div id="map"></div>
+            </div>
+
+            </section>
+
+           <!--task management-->
+           <section class="task-management">
+            <div class="task">
+            <h3>Task Management</h3>
+            <button class="add-task-btn">Add new task</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Assigned To</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="taskTableBody">
+                    <!-- Tasks will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+       
+
+        <div class="scheme-container">
+            <div class="scheme-list">
+                <div class="scheme-item">PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)</div>
+                <div class="scheme-item">Pradhan Mantri Fasal Bima Yojana (PMFBY)</div>
+                <div class="scheme-item">National Agriculture Market (e-NAM)</div>
+                <div class="scheme-item">Mahila Kisan Sashaktikaran Pariyojana (MKSP)</div>
+                <div class="scheme-item">Paramparagat Krishi Vikas Yojana (PKVY)</div>
+                <div class="scheme-item">Pradhan Mantri Krishi Sinchai Yojana (PMKSY)</div>
+            </div>
+        </div>
+         </section>
+    
+        <!-- Task Modal -->
+        <div id="taskModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h3>Add New Task</h3>
+                <form style="margin-top: 10px;" id="taskForm">
+                    <label for="taskName">Task Name:</label>
+                    <input type="text" id="taskName" required><br><br>
+    
+                    <label for="farmerName">Farmer Name:</label>
+                    <input type="text" id="farmerName" required placeholder="Farmer [Name]"><br><br>
+    
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" required><br><br>
+    
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+        </div>
+
+        </section>   
+
+            
+        </main>
+<!--harvest end-->
+
+
+<!--right section-->
+        <section class="right-section">      
+            <!-- Total Land Area Card -->
+            <div class="card land-area-card">
+                <h3>Total Land Area</h3>
+                <h3><p><strong>2.67 acres</strong></p></h3>
+                <h4 class="land-growth">+8.08% from last month</h4>
+            </div>
+        
+            <!-- Revenue Card -->
+            <div class="card revenue-card">
+                <h3>Revenue</h3>
+                <p><strong>₹50,000</strong></p>
+                <h4 class="revenue-growth">+12.45% from last month</h4>
+            </div>
+             <!-- Harvest Summary -->
+               
+             <section class ="harvest">
+                <div class="card harvest-summary-card">
+                    <h3>Vegetable Harvest Summary</h3>
+                    <table class="harvest-table">
+                        <tbody>
+                            <tr>
+                                <td>Tomatoes</td>
+                                <td><strong>150 kg</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Carrots</td>
+                                <td><strong>120 kg</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Potatoes</td>
+                                <td><strong>90 kg</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </section>
+        </section>
+        
+
+    </div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="script.js"></script>   
+<script>
+    const locationButton = document.getElementById('locationButton');
+    const mapContainer = document.getElementById('map');
+
+    // Initialize the map but hide it initially
+    const map = L.map('map').setView([0, 0], 13);
+
+    // Load and display tile layer on the map (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 50
+    }).addTo(map);
+
+    locationButton.addEventListener('click', () => {
+      const confirmLocation = confirm("This website wants to access your location to show your position on the map. Do you allow this?");
+      
+      if (confirmLocation) {
+        // If user confirms, try to get their location
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            // Display the map container now that location access is allowed
+            mapContainer.style.display = 'block';
+
+            // Set the map view to the user's current location
+            map.setView([lat, lon], 13);
+
+            // Add a marker for the current location
+            L.marker([lat, lon]).addTo(map)
+              .bindPopup("Your location!")
+              .openPopup();
+
+            // Hide the button after map is shown
+            locationButton.style.display = 'none';
+
+          }, () => {
+            alert("Unable to retrieve your location.");
+          });
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+    });
+</script>
+<script src="task.js"></script>
+</body>
+
+
+</html>
